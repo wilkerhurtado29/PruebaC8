@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started
 
 Welcome to your new project.
@@ -23,3 +24,7 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+=======
+# PruebaCapC8
+Pruebas para cap curso 8 git
+>>>>>>> 487073af3e9bfe9d8c7404b2a67b799f10af5aef
