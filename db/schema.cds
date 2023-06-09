@@ -1,5 +1,5 @@
+    //namespace hc450.officesupplies;
     namespace hc450.officesupplies;
-    
     using {Currency} from '@sap/cds/common';
     
     entity Products {
