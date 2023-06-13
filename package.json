@@ -1,33 +1,48 @@
 {
-  "name": "HC_OFF_SUPPLIES",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^6",
-    "@sap/hana-client": "^2.16.26",
-    "express": "^4",
-    "hdb": "^0.19.0",
-    "@sap/hdbext": "^7.7.4",
-    "sap-hdbext-promisfied": "^2.202108.1"
-  },
-  "devDependencies": {
-    "@sap/hdi-deploy": "4.6.1",
-    "sqlite3": "^5"
-  },
-  "scripts": {
-    "start": "cds-serve"
-  },
-  "cds": {
-    "hana": {
-      "deploy-format": "hdbtable"
+    "name": "HC_OFF_SUPPLIES",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^6",
+        "@sap/hana-client": "^2.16.26",
+        "@sap/hdbext": "^7.7.4",
+        "express": "^4",
+        "hdb": "^0.19.0",
+        "sap-hdbext-promisfied": "^2.202108.1"
     },
-    "requires": {
-      "db": {
-        "kind": "hana"
-      }
-    }
-  }
+    "devDependencies": {
+        "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+        "@sap/hdi-deploy": "4.6.1",
+        "@sap/ux-specification": "^1.108.7",
+        "@sapui5/ts-types": "^1.92.2",
+        "eslint": "^7.32.0",
+        "sqlite3": "^5",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "watch-fioriprueba": "cds watch --open fioriprueba/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy HC_OFF_SUPPLIES --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "cds": {
+        "hana": {
+          "deploy-format": "hdbtable"
+        },
+        "requires": {
+          "db": {
+            "kind": "hana"
+          },
+          "auth": {
+            "kind": "mocked"
+          }
+        }
+      },    
+    "sapux": [
+        "app/fioriprueba"
+    ]
 }
