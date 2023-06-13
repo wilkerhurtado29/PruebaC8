@@ -2,3 +2,6 @@
 # appName = hc450
 ---
 create-services:
+    - name: HC_OFF_SUPPLIES-db
+      broker: hana # 'hanatrial' on trial landscape
+      plan: "hdi-shared"
